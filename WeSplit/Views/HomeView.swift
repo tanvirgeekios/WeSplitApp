@@ -24,6 +24,7 @@ struct HomeView: View {
                     //Text("\(homeVM.numberOfPeople)")
                 
                 }
+                
                 Section(header:Text("How much tip do you wanna give?")){
                     Picker("Tip Percentage", selection:$homeVM.tipPercentageIndex){
                         ForEach(0..<homeVM.tipPercentages.count){
@@ -31,8 +32,13 @@ struct HomeView: View {
                         }
                     }.pickerStyle(SegmentedPickerStyle())
                 }
-                Section{
+                
+                Section(header:Text("Amount per person")){
                     Text("Total per person: \(homeVM.totalPerPerson)")
+                }
+                
+                Section(header:Text("Total Amount")){
+                    Text("Total amount:\(homeVM.totalCost)")
                 }
             }.navigationTitle("WeSplit")
         }

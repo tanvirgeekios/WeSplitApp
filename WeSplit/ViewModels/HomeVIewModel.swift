@@ -21,4 +21,10 @@ class HomeViewModel:ObservableObject{
         let finalResult = totalCost/numberOfPeople
         return String(format: "%.2f", finalResult)
     }
+    var totalCost:String{
+        let tipPercentage = Double(tipPercentages[tipPercentageIndex])
+        let totalAmount = Double(amount) ?? 0
+        let totalCost = totalAmount + totalAmount * (tipPercentage/100)
+        return String(format: "%.2f", totalCost)
+    }
 }
